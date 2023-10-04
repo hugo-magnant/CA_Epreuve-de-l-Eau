@@ -1,5 +1,5 @@
-# Vérifie si un argument a été fourni
-if ARGV.length != 1
+# Vérifie si un argument a été fourni et s'il contient au moins une lettre alphabétique
+if ARGV.length != 1 || !(ARGV[0] =~ /[A-Za-z]/)
   puts "error"
   exit 1
 end
@@ -12,7 +12,7 @@ upcase_next = true
 
 # Transforme la chaîne
 result = str.each_char.map do |c|
-  if c =~ /[A-Za-z]/  # Vérifie si c'est une lettre
+  if c =~ /[A-Za-z]/ # Vérifie si c'est une lettre
     if upcase_next
       upcase_next = false
       c.upcase
